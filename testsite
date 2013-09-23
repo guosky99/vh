@@ -1,0 +1,15 @@
+<VirtualHost *:80>
+    WSGIDaemonProcess testsite.com processes=2 threads=25
+    WSGIProcessGroup testsite.com
+
+    ServerName testsite.com  
+    DocumentRoot /var/www/testsite
+       
+    <Directory /var/www/testsite>  
+        Order allow,deny  
+        Allow from all  
+    </Directory>  
+       
+    WSGIScriptAlias / /var/www/testsite/testsite/wsgi.py  
+       
+</VirtualHost>
